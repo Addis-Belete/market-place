@@ -17,4 +17,14 @@ contract NFTMarket is ReentrancyGuard {
     constructor() {
         owner = payable(msg.sender);
     }
+
+    struct MarketItem {
+        uint256 itemId;
+        address nftContract;
+        uint256 tokenId;
+        address payable seller;
+        address payable owner;
+        uint256 price;
+        bool sold;
+    }
 }
