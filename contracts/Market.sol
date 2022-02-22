@@ -27,4 +27,20 @@ contract NFTMarket is ReentrancyGuard {
         uint256 price;
         bool sold;
     }
+    mapping(uint256 => MarketItem) private idToMarketItem;
+    event MarketItemCreated(
+        uint256 indexed itemId,
+        address indexed nftContract,
+        uint256 indexed tokenId,
+        address seller,
+        address owner,
+        uint256 price,
+        bool sold
+    );
+
+    // Returns the listing price of the contract
+
+    function getListingPrice() public view returns (uint256) {
+        return listingPrice;
+    }
 }
