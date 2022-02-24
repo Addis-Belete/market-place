@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT OR Apache-2.0
-pragma solidity ^0.6.5;
+pragma solidity >=0.4.22 <0.9.0;
 
 import "@openzeppelin/contracts/utils/Counters.sol";
 import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
@@ -97,7 +97,7 @@ contract NFTMarket is ReentrancyGuard {
         idToMarketItem[itemId].owner = payable(msg.sender);
         idToMarketItem[itemId].sold = true;
         itemsSold.increment();
-        payable(owner.transfer(listingPrice));
+        payable(owner).transfer(listingPrice);
     }
 
     // Returns all unslod market items

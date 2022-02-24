@@ -3,7 +3,20 @@ const projectId = "2175d834e04d481eba6fccf6a5967e12"
 const fs = require("fs")
 privateKey = fs.readFileSync(".secret").toString().trim()
 module.exports = {
-	solidity: "0.6.5",
+	solidity: {
+		compilers:
+			[
+				{
+					version: "0.6.5",
+				},
+				{
+					version: "0.8.0",
+				},
+				{
+					version: "0.8.1",
+				}
+			],
+	},
 	defaultNetwork: "hardhat",
 	networks: {
 		hardhat: {
