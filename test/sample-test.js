@@ -12,11 +12,12 @@ describe("NFTMarket", function () {
 		// deploy  the NFT contract
 
 		const NFT = await ethers.getContractFactory("NFT");
-		const nft = await NFT.deploy()
+		const nft = await NFT.deploy(marketAddress)
 		await nft.deployed();
 		const nftContractAddress = nft.address
 		let listingPrice = await market.getListingPrice();
 		listingPrice = listingPrice.toString()
+		const auctionPrice = ethers.utils.parseUnits('1', 'ether')
 
 		// create two tokens
 		await nft.createToken("https://www.mytokenlocation.com")
@@ -35,12 +36,11 @@ describe("NFTMarket", function () {
 		items = await Promise.all(items.map(async i => {
 			const tokenUri = await nft.tokenURI(i.tokenId)
 			let item = {
-				price = i.price.toString(),
+				price: i.price.toString(),
 				tokenId: i.tokenId.toString(),
 				seller: i.seller,
 				owner: i.owner,
 				tokenUri
-
 			}
 			return item
 		}))
