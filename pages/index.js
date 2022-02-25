@@ -1,9 +1,9 @@
-
+import HomePage from "./components/HomePage"
 
 export default function Home() {
 	return (
 		<div className="text-red-400">
-			Hello World
+			<HomePage />
 		</div>
 	)
 }
