@@ -2,7 +2,7 @@ import React from "react";
 import { ethers } from "ethers";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import web3Modal from "web3modal";
+import Web3Modal from "web3modal";
 import { nftAddress, nftmarketAddress } from "../../config";
 import NFTABI from "../../artifacts/contracts/Market.sol/NFTMarket.json";
 import NFTMarketABI from "../../artifacts/contracts/NFT.sol/NFT.json";
@@ -47,9 +47,42 @@ const HomePage = () => {
     setNFfts(items);
     setLoadingState("loaded");
   }
+  async function buyNfts(nft) {
+    const web3Modal = new Web3Modal();
+    const connection = await web3Modal.connect();
+    const provider = new ethers.Web3Provider(connection);
+    const signer = provider.getSigner();
+    const contract = new ethers.Contract(
+      nftmarketAddress,
+      NFTMarketABI,
+      signer
+    );
+
+    const price = ethers.utils.parseUnits(nft.price.toString(), "ether");
+    const transaction = await contract.createMarketSale(
+      nftAddress,
+      nft.tokeId,
+      { value: price }
+    );
+
+    await transaction.wait();
+    loadNFTs();
+  }
+if (loadingState === 'loaded' && !nfts.length) return (<h1 className = "px-20 py-10 text-3xl">No Items in marketPlace</h1>)
+  return (
+<div>
+<div className=" flex justify-center">
+<div className="px-4" style={{maxWidth: '1600px'}}>
 
 
-  return <div></div>;
+
+</div>
+
+
+</div>
+
+
+</div>);
 };
 
 export default HomePage;
