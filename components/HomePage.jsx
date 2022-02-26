@@ -50,14 +50,14 @@ const HomePage = () => {
     const provider = new ethers.Web3Provider(connection);
     const signer = provider.getSigner();
     const contract = new ethers.Contract(
-      nftmarketAddress,
-      NFTMarketABI.abi,
+      nftmarketaddress,
+      Market.abi,
       signer
     );
 
     const price = ethers.utils.parseUnits(nft.price.toString(), "ether");
     const transaction = await contract.createMarketSale(
-      nftAddress,
+      nftaddress,
       nft.tokeId,
       { value: price }
     );
