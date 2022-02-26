@@ -9,6 +9,24 @@ import Market from "../artifacts/contracts/Market.sol/NFTMarket.json";
 const client = ipfsHttpClient("https://ipfs.infura.io:5001/api/v0");
 
 const CreateNfts = () => {
+const [fileUrl, setFileUrl] = useState(null)
+const [formInput, setFormInput] = useState({price: '', name: '', description: '' })
+const router = useRouter()
+
+async function onChange(e){
+const  file = e.target.files[0]
+try {
+const added = await client.add(file, {
+progress: (prog) => console.log(`received: ${prog}`)
+})
+const url = `https://ipfs.infura.io/ipfs/${added.path}`
+setFileUrl(url)
+} catch(error){
+console.log('Error uploading file: ', error)
+
+}
+
+}
   return (
     <div className=" flex justify-center">
       <div className="w-1/2 flex flex-col pb-12">
