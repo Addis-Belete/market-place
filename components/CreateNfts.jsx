@@ -77,26 +77,39 @@ const CreateNfts = () => {
           type="text"
           placeholder="Asset Name"
           className="mt-8 border rounded p-4"
-onChange={e => setFormInput({...formInput, name: e.target.value})}
+          onChange={(e) => setFormInput({ ...formInput, name: e.target.value })}
         />
         <textarea
           name="description"
           id="description"
           cols="30"
-          rows="10"
+          rows="5"
           placeholder="Asset Description"
           className="mt-2 border rounded p-4"
-onChange={e => setFormInput({...formInput, description: e.target.value})}
+          onChange={(e) =>
+            setFormInput({ ...formInput, description: e.target.value })
+          }
         />
         <input
           placeholder="Asset Price in ETH"
           className="mt-2 border rounded p-4"
-onChange={e => setFormInput({...formInput, price: e.target.value})}
+          onChange={(e) =>
+            setFormInput({ ...formInput, price: e.target.value })
+          }
         />
-        <input type="file" name="Asset" id="asset" className="my-4" onChange={onChange}/>
+        <input
+          type="file"
+          name="Asset"
+          id="asset"
+          className="my-4"
+          onChange={onChange}
+        />
         {fileUrl && <img className="rounded mt-4 " width="350" src={fileUrl} />}
 
-        <button className="font-bold mt-4 bg-pink-500 text-white rounded p-4 shadow-lg" onClick={createMarket}>
+        <button
+          className="font-bold mt-4 bg-pink-500 text-white rounded p-4 shadow-lg"
+          onClick={createMarket}
+        >
           Create Digital Asset
         </button>
       </div>
