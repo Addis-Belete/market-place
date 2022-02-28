@@ -1,9 +1,9 @@
-import React from 'react'
+import Dashboard from "../components/Dashboard"
 
 const creator_dashboard = () => {
 	return (
 		<div>
-			Hello
+			<Dashboard />
 		</div>
 	)
 }
