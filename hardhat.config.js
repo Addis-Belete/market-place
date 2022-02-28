@@ -24,7 +24,7 @@ module.exports = {
 		},
 		rinkeby: {
 			url: `https://rinkeby.infura.io/v3/${projectId}`,
-			accounts: [privateKey] //Private key of the account
+			accounts: ['0xcc1ef5a937b9414f226c3dab28184b9a44cb42d672cb32c1db223c0ab57c04c8'] //Private key of the account
 		}
 	}
 };
