@@ -12,7 +12,7 @@ const NavBar = () => {
 					<Link href="/create_item">
 						<a className="mr-6 text-pink-500">Sell Digital Asset</a>
 					</Link>
-					<Link href="/my-assets">
+					<Link href="/my_assets">
 						<a className="mr-6 text-pink-500">My Digital Assets</a>
 					</Link>
 					<Link href="/creator-dashboard">
