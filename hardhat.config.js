@@ -17,14 +17,14 @@ module.exports = {
 				}
 			],
 	},
-	defaultNetwork: "hardhat",
+
 	networks: {
 		hardhat: {
 			chainID: 1337
 		},
 		rinkeby: {
 			url: `https://rinkeby.infura.io/v3/${projectId}`,
-			accounts: ['0xcc1ef5a937b9414f226c3dab28184b9a44cb42d672cb32c1db223c0ab57c04c8'] //Private key of the account
+			accounts: ['0x49cb875fbff7c61e5448ab4d5d777ddc28be363a1df3b84d23340acbfe63d55c'] //Private key of the account
 		}
 	}
 };

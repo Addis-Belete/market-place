@@ -58,6 +58,7 @@ const CreateNfts = () => {
     let event = tx.events[0];
     let value = event.args[2];
     let tokenId = value.toNumber();
+console.log(tokenId)
     const price = ethers.utils.parseUnits(formInput.price, "ether");
 
     contract = new ethers.Contract(nftmarketaddress, Market.abi, signer);

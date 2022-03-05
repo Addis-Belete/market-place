@@ -15,7 +15,7 @@ const HomePage = () => {
   }, []);
 
   async function loadNFTs() {
-    const provider = new ethers.providers.JsonRpcProvider()
+    const provider = new ethers.providers.Web3Provider(web3.currentProvider)
     const tokenContract = new ethers.Contract(nftaddress, NFT.abi, provider)
     const marketContract = new ethers.Contract(nftmarketaddress, Market.abi, provider)
 
@@ -41,6 +41,7 @@ const HomePage = () => {
         return item;
       })
     );
+console.log(items)
     setNFfts(items);
     setLoadingState("loaded");
   }
@@ -73,7 +74,7 @@ const HomePage = () => {
         <div className="px-4" style={{ maxWidth: "1600px" }}>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols4 gap-4 pt-4">
             {nfts.map((nft, i) => {
-              <div
+           return (  <div
                 key={i}
                 className="border hover:shadow rounded-xl overflow-hidden"
               >
@@ -91,7 +92,7 @@ const HomePage = () => {
                 </div>
                 <div className="p-4 bg-black">
                   <p className="text-2xl mb-4 font-bold text-white">
-                    {" "}
+                   
                     {nft.price} ETH
                   </p>
                   <button
@@ -101,7 +102,7 @@ const HomePage = () => {
                     Buy
                   </button>
                 </div>
-              </div>;
+              </div>);
             })}
           </div>
         </div>
