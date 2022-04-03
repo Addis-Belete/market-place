@@ -22,7 +22,7 @@ Additional description about the project and its features.
 
 ## Live Demo
 
-[Live Demo Link](https://mystifying-knuth-91d732.netlify.app)
+[Live Demo Link]()
 
 ## Prerequisites
 
